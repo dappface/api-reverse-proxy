@@ -21,7 +21,7 @@ docker build -t dappface-api <path-to-api-project>
 docker run --name dappface-api --rm -p 8080:8080 -e PROJECT_ID=$PROJECT_ID -e HOME=$HOME -v $HOME:$HOME dappface-api
 
 docker build \
-  --build-arg SUBDOMAIN=$SUBDOMAIN \
+  --build-arg SUBDOMAIN="$SUBDOMAIN" \
   --build-arg CLOUD_RUN_ID="$CLOUD_RUN_ID" \
   -t dappface-api-proxy .
 docker run -it --rm -p 80:80 --link dappface-api:dappface-api dappface-api-proxy
